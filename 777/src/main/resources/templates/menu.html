@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <b class ="navbar-brand" sec:authentication="name">e-mail</b>
+        <span class="navbar-brand">with roles:</span>
+        <div sec:authorize="hasAuthority('ADMIN')">
+          <span class="navbar-brand">ADMIN</span>
+        </div>
+        <div sec:authorize="hasAuthority('USER')">
+          <span class="navbar-brand">USER</span>
+        </div>
+      </ul>
+      <a class="navbar-brand" href="/logout">Logout</a>
+    </div>
+  </nav>
+</header>
+
+</body>
+</html>
